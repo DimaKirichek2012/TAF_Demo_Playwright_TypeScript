@@ -1,7 +1,8 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from '../core/fixtures';
 
-test('Site opens', async ({ page }) => {
-  await page.goto('/');
-  await expect(page).toHaveTitle('Swag Labs');
+test.describe('Smoke', { tag: ['@ui', '@smoke'] }, () => {
+  test('site opens', async ({ page }) => {
+    await page.goto('/');
+    await expect(page).toHaveTitle('Swag Labs');
+  });
 });
-

@@ -5,23 +5,25 @@ export interface Post {
 }
 
 export class PostBuilder {
-  private post: Post = { title: 'default title', body: 'default body', userId: 1 };  // дефолти
+  // Sensible defaults: a test only sets the fields it cares about
+  private post: Post = { title: 'default title', body: 'default body', userId: 1 };
 
   withTitle(title: string): this {
     this.post.title = title;
     return this;
   }
-  withBody(body: string) : this {
+
+  withBody(body: string): this {
     this.post.body = body;
     return this;
   }
-  
-  withUserId(userId: number) : this {
+
+  withUserId(userId: number): this {
     this.post.userId = userId;
     return this;
   }
 
   build(): Post {
-   return { ...this.post };
+    return { ...this.post };
   }
 }

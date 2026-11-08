@@ -1,7 +1,9 @@
 import { test, expect } from '../core/fixtures';
-import { addBackpackToCart } from '../steps/products.steps'
+import { addBackpackToCart } from '../steps/products.steps';
 
-test('Add backpack to cart', async ({standardUserPage}) => {
-    let productsInCart = await addBackpackToCart(standardUserPage)
-    await expect(productsInCart).toHaveText('1')
-})
+test.describe('Cart', { tag: '@ui' }, () => {
+  test('adding the backpack shows 1 item in the cart badge', async ({ standardUserPage }) => {
+    const cartBadge = await addBackpackToCart(standardUserPage);
+    await expect(cartBadge).toHaveText('1');
+  });
+});
